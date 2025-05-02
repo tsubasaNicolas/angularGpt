@@ -30,5 +30,5 @@ if (!fs.existsSync(indexPath)) {
 }
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 Server is running on http://0.0.0.0:${PORT}`);
+  console.log(`🚀 Server is running on ya no es 4200 http://0.0.0.0:${PORT}`);
 });
