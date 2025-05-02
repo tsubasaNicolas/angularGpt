@@ -29,8 +29,6 @@ if (!fs.existsSync(indexPath)) {
   console.log("✅ index.html found at:", indexPath);
 }
 
-app.listen(process.env.PORT || 8080, "0.0.0.0", () => {
-  console.log(
-    `🚀 Server is running on http://0.0.0.0:${process.env.PORT || 8080}`
-  );
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server is running on http://0.0.0.0:${PORT}`);
 });
