@@ -6,7 +6,8 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // 🟢 Usa el path correcto al subdirectorio 'browser'
-const distPath = path.join(__dirname, "../dist/angular-gpt/browser");
+const distPath = path.join(__dirname, "../dist/angular-gpt");
+
 const indexPath = path.join(distPath, "index.html");
 
 app.use(express.static(distPath));
