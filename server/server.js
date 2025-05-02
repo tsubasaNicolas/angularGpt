@@ -18,7 +18,8 @@ if (fs.existsSync(distPath)) {
 
 app.use(express.static(distPath));
 
-app.get("*", (req, res) => {
+// Este bloque debe estar DESPUÉS de `express.static`
+app.get("/*", (req, res) => {
   res.sendFile(indexPath);
 });
 
