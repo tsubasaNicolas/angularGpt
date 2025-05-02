@@ -5,6 +5,12 @@ const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+if (fs.existsSync(distPath)) {
+  console.log(`✅ Static files found at: ${distPath}`);
+} else {
+  console.error(`❌ Error: Static files not found at: ${distPath}`);
+}
+
 // 🟢 Usa el path correcto al subdirectorio 'browser'
 const distPath = path.join(__dirname, "../dist/angular-gpt/browser");
 
@@ -22,6 +28,8 @@ if (!fs.existsSync(indexPath)) {
   console.log("✅ index.html found at:", indexPath);
 }
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 Server is running on http://0.0.0.0:${PORT}`);
+app.listen(process.env.PORT || 8080, "0.0.0.0", () => {
+  console.log(
+    `🚀 Server is running on http://0.0.0.0:${process.env.PORT || 8080}`
+  );
 });
