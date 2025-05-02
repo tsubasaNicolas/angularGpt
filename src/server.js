@@ -11,7 +11,7 @@ const indexHtml = path.join(distPath, "index.html");
 if (!fs.existsSync(indexHtml)) {
   console.error("❌ ERROR: index.html not found at:", indexHtml);
 } else {
-  console.log("✅ index.html found at:", indexHtml);
+  console.log("✅ index.html found at: encontrado", indexHtml);
 }
 
 app.use(express.static(distPath));
