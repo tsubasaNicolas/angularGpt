@@ -4,19 +4,23 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Ruta al directorio compilado por Angular
 const distPath = path.join(__dirname, "dist/angular-gpt/browser");
 const indexPath = path.join(distPath, "index.html");
 
-// Archivos estáticos
-app.use(express.static(distPath));
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
 
-// Servir index.html para todas las rutas (incluye rutas Angular internas)
+app.use(express.static(distPath));
+console.log(`Serving static files from: ${distPath}`);
+console.log(`Index path: ${indexPath}`);
+
 app.get("/*", (req, res) => {
+  console.log(`Serving index.html for route: ${req.url}`);
   res.sendFile(indexPath);
 });
 
-// Iniciar el servidor
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server is running on http://0.0.0.0:${PORT}`);
 });
