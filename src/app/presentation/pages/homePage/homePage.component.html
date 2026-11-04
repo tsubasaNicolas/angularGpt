@@ -1,0 +1,136 @@
+<div class="flex flex-col h-full overflow-y-auto pr-2">
+  <!-- Header -->
+  <div class="text-center mb-8">
+    <h1 class="text-4xl sm:text-5xl font-bold bg-gradient-to-br from-white via-gray-300 to-indigo-500 bg-clip-text text-transparent">
+      AngularGPT<span class="text-indigo-500">.</span>
+    </h1>
+    <p class="text-gray-400 mt-3 text-sm sm:text-base">
+      Demo de integraciones con OpenAI · Angular 19 + NestJS
+    </p>
+    <p class="text-gray-500 text-xs sm:text-sm mt-1">
+      Nicolás Carrasco
+    </p>
+  </div>
+
+  <!-- Estado del proyecto -->
+  <div class="text-center flex flex-col items-center gap-1.5 mb-8">
+    <span class="text-xs font-semibold text-amber-400 tracking-wide uppercase">
+      En Actualización (03-11-2026)
+    </span>
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-indigo-950 text-indigo-200 border border-indigo-700/60 shadow-md">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      Actualizado: Agente Sam (Responses API + file_search) ✨
+    </span>
+  </div>
+
+  <div class="text-center mt-2 flex flex-col items-center gap-1.5">
+      <span class="text-xs font-semibold text-amber-400 tracking-wide uppercase">
+        Actualizado (05-10-2026)
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-indigo-950 text-indigo-200 border border-indigo-700/60 shadow-md">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Actualizado: Generación de imágenes: SDK OpenAI + gpt-image-2.5 ✨
+      </span>
+     <!--  <span class="text-xs font-semibold text-amber-400 tracking-wide uppercase">
+        Siguente Actualización: Editar imagen y Asistente ...
+      </span> -->
+    </div>
+
+  <!-- Grid de features -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto w-full mt-8">
+
+       <!-- Agente Sam -->
+    <a routerLink="/assistant"
+       class="bg-gray-800/60 border border-indigo-700/40 rounded-2xl p-5 hover:border-indigo-500 transition-colors group">
+      <div class="flex items-center gap-3 mb-2">
+        <i class="fa-solid fa-futbol text-emerald-400 text-lg"></i>
+        <h2 class="text-lg font-semibold text-white">Agente AllMyFootball</h2>
+        <span class="ml-auto text-[10px] bg-emerald-600/30 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-600/40">NEW</span>
+      </div>
+      <p class="text-sm text-gray-400">
+        Asistente oficial con <span class="text-indigo-300">file_search</span> sobre la base de conocimiento de AllMyFootball: equipos, partidos, estadísticas y arquitectura.
+        Migrado de Assistants API a Responses API.
+      </p>
+    </a>
+      <!-- Imágenes -->
+    <a routerLink="/image-generation"
+       class="bg-gray-800/60 border border-gray-700/40 rounded-2xl p-5 hover:border-indigo-500 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <i class="fa-solid fa-image text-pink-400 text-lg"></i>
+        <h2 class="text-lg font-semibold text-white">Imágenes</h2>
+      </div>
+      <p class="text-sm text-gray-400">
+        Generación de imágenes con <span class="text-pink-300">gpt-image-2.5</span> vía SDK de OpenAI.
+        Prompt libre y descarga del resultado.
+      </p>
+    </a>
+
+    <!-- Ortografía -->
+   <!--  <a routerLink="/orthography"
+       class="bg-gray-800/60 border border-gray-700/40 rounded-2xl p-5 hover:border-indigo-500 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <i class="fa-solid fa-spell-check text-emerald-400 text-lg"></i>
+        <h2 class="text-lg font-semibold text-white">Ortografía</h2>
+      </div>
+      <p class="text-sm text-gray-400">
+        Corrige texto y explica los errores. Usa <span class="text-emerald-300">gpt-4o-mini</span> con JSON mode.
+      </p>
+    </a> -->
+
+    <!-- Pros & Cons -->
+ <!--    <a routerLink="/pros-cons"
+       class="bg-gray-800/60 border border-gray-700/40 rounded-2xl p-5 hover:border-indigo-500 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <i class="fa-solid fa-code-compare text-blue-400 text-lg"></i>
+        <h2 class="text-lg font-semibold text-white">Pros & Cons</h2>
+      </div>
+      <p class="text-sm text-gray-400">
+        Compara ventajas y desventajas de cualquier tema con razonamiento estructurado.
+      </p>
+    </a>
+ -->
+    <!-- Translate -->
+   <!--  <a routerLink="/translate"
+       class="bg-gray-800/60 border border-gray-700/40 rounded-2xl p-5 hover:border-indigo-500 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <i class="fa-solid fa-language text-amber-400 text-lg"></i>
+        <h2 class="text-lg font-semibold text-white">Traducir</h2>
+      </div>
+      <p class="text-sm text-gray-400">
+        Traducción a múltiples idiomas con selección de target dinámico.
+      </p>
+    </a>
+ -->
+    <!-- Pros & Cons Stream -->
+ <!--    <a routerLink="/pros-cons-stream"
+       class="bg-gray-800/60 border border-gray-700/40 rounded-2xl p-5 hover:border-indigo-500 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <i class="fa-solid fa-water text-cyan-400 text-lg"></i>
+        <h2 class="text-lg font-semibold text-white">Stream</h2>
+      </div>
+      <p class="text-sm text-gray-400">
+        Respuesta en tiempo real con Server-Sent Events (streaming).
+      </p>
+    </a> -->
+
+    <!-- Stack -->
+    <div class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/40 rounded-2xl p-5">
+      <div class="flex items-center gap-3 mb-2">
+        <i class="fa-solid fa-layer-group text-pink-400 text-lg"></i>
+        <h2 class="text-lg font-semibold text-white">Stack</h2>
+      </div>
+      <ul class="text-sm text-gray-400 space-y-1">
+        <li>· Angular 19 + Signals + Tailwind</li>
+        <li>· NestJS + OpenAI SDK</li>
+        <li>· Responses API + file_search</li>
+        <li>· Vector store con PDF términos</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="text-center text-xs text-gray-600 mt-10 mb-4">
+    Demo funcional — <a href="https://github.com/tsubasaNicolas/angularGpt" target="_blank" class="hover:text-gray-400">código front</a> y <a href="https://github.com/tsubasaNicolas/nestAI" target="_blank" class="hover:text-gray-400">código backend</a> en GitHub
+  </div>
+</div>

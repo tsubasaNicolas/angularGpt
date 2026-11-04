@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  OnInit,
   signal,
 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,46 +22,36 @@ import { OpenAiService } from 'app/presentation/services/openai.service';
     ChatMessageComponent,
     MyMessageComponent,
     TypingLoaderComponent,
-    CommonModule,
     ReactiveFormsModule,
     TextMessageBoxComponent,
   ],
   templateUrl: './assistantPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class AssistantPageComponent implements OnInit {
+export default class AssistantPageComponent {
   public messages = signal<Message[]>([]);
   public isloading = signal(false);
   public openAiService = inject(OpenAiService);
 
-  public threadId = signal<string | undefined>(undefined);
-
-  ngOnInit(): void {
-    this.openAiService.createThread().subscribe((id) => {
-      this.threadId.set(id);
-    });
-  }
+  public previousResponseId = signal<string | undefined>(
+    localStorage.getItem('responseId') || undefined
+  );
 
   handleMessage(question: string) {
     this.isloading.set(true);
     this.messages.update((prev) => [...prev, { text: question, isGpt: false }]);
 
     this.openAiService
-      .postQuestion(this.threadId()!, question)
-      .subscribe(replies => {
+      .postQuestion(question, this.previousResponseId())
+      .subscribe((result) => {
         this.isloading.set(false);
+        this.previousResponseId.set(result.responseId);
+        localStorage.setItem('responseId', result.responseId);
 
-        for (const reply of replies) {
-          for (const message of reply.content) {
-            this.messages.update((prev) => [
-              ...prev,
-              {
-                text: message,
-                isGpt: reply.role === 'assistant',
-              },
-            ]);
-          }
-        }
+        this.messages.update((prev) => [
+          ...prev,
+          { text: result.text, isGpt: true },
+        ]);
       });
   }
 }

@@ -6,7 +6,27 @@ export const routes: Routes = [
     path: '',
     component: DashboardLayoutComponent,
     children: [
+       {
+        path: 'home',
+        loadComponent: () =>
+          import('./presentation/pages/homePage/homePage.component'),
+        data: {
+          icon: 'fa-solid fa-house',
+          title: 'Home',
+          description: 'Inicio del proyecto',
+        },
+      },
       {
+        path: 'assistant',
+        loadComponent: () =>
+          import('./presentation/pages/assistantPage/assistantPage.component'),
+        data: {
+          icon: 'fa-solid fa-user',
+          title: 'AllMyFootball Agent',
+          description: 'AllMyFootball',
+        },
+      },
+      /* {
         path: 'orthography',
         loadComponent: () =>
           import(
@@ -73,7 +93,7 @@ export const routes: Routes = [
           title: 'Audio a texto',
           description: 'Convertir audio a texto',
         },
-      },
+      }, */
       {
         path: 'image-generation',
         loadComponent: () =>
@@ -86,7 +106,7 @@ export const routes: Routes = [
           description: 'Generar imágenes',
         },
       },
-      {
+    /*   {
         path: 'image-tunning',
         loadComponent: () =>
           import(
@@ -97,7 +117,7 @@ export const routes: Routes = [
           title: 'Editar imagen',
           description: 'Generación continua',
         },
-      },
+      }, 
 
       {
         path: 'assistant',
@@ -109,9 +129,16 @@ export const routes: Routes = [
           description: 'Información del asistente',
         },
       },
-      {
+     {
         path: '**',
         redirectTo: 'orthography',
+        pathMatch: 'full',
+      }, */
+
+      
+      {
+        path: '**',
+        redirectTo: 'home',
         pathMatch: 'full',
       },
     ],
